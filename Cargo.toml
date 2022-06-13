@@ -1,5 +1,5 @@
 [package]
-authors = ["Kevin Asbury <kevin@fullstacklabs.co>"]
+authors = ["Kevin Asbury <kevinasbury.dev@gmail.com>"]
 edition = "2018"
 readme = "README.md"
 name = "app"
@@ -26,8 +26,20 @@ bench = false
 
 [profile.release]
 codegen-units = 1 # better optimizations
-debug = true # symbols are nice and they don't increase the size on Flash
+debug = false # symbols are nice and they don't increase the size on Flash
+debug-assertions = false
+overflow-checks = false
+panic = 'unwind'
 lto = true # better optimizations
+opt-level = "z"
+incremental = false
 
 [profile.dev]
+opt-level = 0
 debug = 2
+debug-assertions = true
+overflow-checks = true
+lto = false
+panic = 'unwind'
+incremental = true
+codegen-units = 256
