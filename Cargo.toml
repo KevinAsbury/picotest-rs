@@ -33,6 +33,7 @@ panic = 'unwind'
 lto = true # better optimizations
 opt-level = "z"
 incremental = false
+strip = true 
 
 [profile.dev]
 opt-level = 0
